@@ -85,7 +85,7 @@ const normalizedAssets = computed(() => {
     }
   }).sort((a: any, b: any) => {
     // Active items first, then retired/sold
-    const statusOrder: Record<string, number> = { '服役中': 0, '已退役': 1, '已卖出': 1 }
+    const statusOrder: Record<string, number> = { '服役中': 0, '已退役': 1, '已卖出': 2 }
     const orderDiff = (statusOrder[a.statusText] ?? 2) - (statusOrder[b.statusText] ?? 2)
     if (orderDiff !== 0) return orderDiff
     return b.price - a.price
@@ -103,7 +103,9 @@ const filteredAssets = computed(() => {
 
 // Dashboard computations
 const totalAssets = computed(() => {
-  return normalizedAssets.value.reduce((sum: number, item: any) => sum + item.price, 0)
+  return normalizedAssets.value
+    .filter((item: any) => item.status !== 2)
+    .reduce((sum: number, item: any) => sum + item.price, 0)
 })
 
 const totalDailyCost = computed(() => {
