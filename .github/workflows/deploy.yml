@@ -1,0 +1,38 @@
+name: Deploy
+
+on:
+  issues:
+    types: [opened, edited]
+  issue_comment:
+    types: [created, edited, deleted]
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - uses: actions/checkout@v4
+
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v3
+      with:
+        version: 9
+
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 18
+        cache: 'pnpm'
+
+    - run: pnpm install
+
+    - name: Build
+      run: pnpm run generate
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: .output/public

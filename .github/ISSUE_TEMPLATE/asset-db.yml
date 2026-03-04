@@ -1,0 +1,7 @@
+name: Asset Database
+title: Asset Database
+labels: ["assets-db"]
+body:
+  - type: markdown
+    attributes:
+      value: "系统主资产库 Issue，请勿删除。请在本 Issue 下方评论添加资产。"
