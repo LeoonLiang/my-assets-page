@@ -1,6 +1,24 @@
-# MyAssetsPage
+<div align="center">
+  <h1>MyAssetsPage</h1>
+  <a href="https://leoonliang.github.io/my-assets-page/" target="_blank">
+    <img src="./public/preview.png" alt="MyAssetsPage" width="600">
+  </a>
+  <br>
+  <p><strong>基于 GitHub Issues 的个人资产管理与展示页面</strong></p>
+  <p>使用 Nuxt 3 静态生成，部署在 GitHub Pages，Fork 即用、完全免费</p>
+  <p>
+    <a href="https://leoonliang.github.io/my-assets-page/"><strong>📱 在线预览</strong></a>
+  </p>
+</div>
 
-基于 GitHub Issues 的个人资产管理与展示页面，使用 Nuxt 3 静态生成，部署在 GitHub Pages，**Fork 即用、完全免费**。
+<p align="center">
+  <a href="./LICENSE"><img src="https://img.shields.io/github/license/LeoonLiang/my-assets-page?style=flat-square" alt="License"></a>
+  <a href="https://github.com/LeoonLiang/my-assets-page/stargazers"><img src="https://img.shields.io/github/stars/LeoonLiang/my-assets-page?style=flat-square" alt="Stars"></a>
+  <a href="https://github.com/LeoonLiang/my-assets-page/network/members"><img src="https://img.shields.io/github/forks/LeoonLiang/my-assets-page?style=flat-square" alt="Forks"></a>
+  <img src="https://img.shields.io/badge/开源-MIT-blue?style=flat-square" alt="Open Source">
+</p>
+
+---
 
 ## ✨ 特性
 

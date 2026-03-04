@@ -480,15 +480,11 @@ body {
 /* Grid */
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
 }
 
-@media (max-width: 400px) {
-  .grid-container {
-    grid-template-columns: 1fr;
-  }
-}
+
 
 /* Asset Card */
 .asset-card {
@@ -653,5 +649,129 @@ body {
   display: inline-block;
   width: fit-content;
   font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 13px;
+  }
+
+  .page-container {
+    padding: 1rem 0.75rem;
+  }
+
+  .header-top {
+    margin-bottom: 1rem;
+    padding: 0 0.25rem;
+  }
+
+  .header-top h1 {
+    font-size: 1.55rem;
+  }
+
+  .dashboard-card {
+    padding: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .dashboard-title {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .dashboard-stats {
+    margin-bottom: 1rem;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .stat-value {
+    font-size: 1.2rem;
+  }
+
+  .currency {
+    font-size: 0.85rem;
+  }
+
+  .status-summary {
+    gap: 0.9rem;
+  }
+
+  .filter-tabs {
+    margin-bottom: 1rem;
+    padding: 0;
+  }
+
+  .tab-btn {
+    padding: 0.35rem 0.85rem;
+    font-size: 0.75rem;
+  }
+
+  .grid-container {
+    gap: 0.75rem;
+  }
+
+  .asset-card {
+    padding: 0.85rem;
+  }
+
+  .card-header {
+    height: 70px;
+    margin-bottom: 0.75rem;
+    justify-content: flex-start;
+  }
+
+  .card-name {
+    font-size: 0.9rem;
+  }
+
+  .card-meta {
+    font-size: 0.65rem;
+    margin: 0 0 0.75rem 0;
+  }
+
+  .card-image-box {
+    justify-content: flex-start;
+  }
+
+  .card-image-box img {
+    max-width: 50%;
+    max-height: 72%;
+  }
+
+  .card-status-pill {
+    top: 6px;
+    right: 6px;
+    padding: 2px 6px;
+    font-size: 0.6rem;
+    gap: 3px;
+    background: rgba(255, 255, 255, 0.85);
+  }
+
+  .card-status-pill .dot {
+    width: 5px;
+    height: 5px;
+  }
+
+  .card-daily-cost .currency {
+    font-size: 0.75rem;
+  }
+
+  .card-daily-cost .cost-value {
+    font-size: 0.95rem;
+  }
+
+  .card-daily-cost .cost-unit {
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 340px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
