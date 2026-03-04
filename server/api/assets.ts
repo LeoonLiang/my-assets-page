@@ -14,7 +14,13 @@ export default defineEventHandler(async (event) => {
     try {
         // 1. 获取主 Issue
         const issues = await axios.get(
-            `https://api.github.com/repos/${owner}/${repo}/issues`
+            `https://api.github.com/repos/${owner}/${repo}/issues`,
+            {
+                params: {
+                    state: 'all',
+                    per_page: 10,
+                }
+            }
         )
 
         const mainIssue = issues.data.find(
