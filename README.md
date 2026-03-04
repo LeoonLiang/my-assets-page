@@ -22,6 +22,17 @@
 6. 在该 Issue 下方 **发表评论** 来添加资产
 7. 等待 Actions 自动部署完成，打开你的 GitHub Pages 链接即可访问！
 
+## 🌐 自定义域名（CNAME）
+
+部署工作流已支持自动写入 CNAME 文件，使用仓库变量 `CUSTOM_DOMAIN` 指定你的自定义域名。
+
+配置步骤：
+- 在仓库 Settings → Secrets and variables → Actions → Variables 新增：`CUSTOM_DOMAIN = 你的域名`（例如 `assets.example.com`）
+- 在域名 DNS 服务商将该域名 CNAME 到你的 GitHub Pages 根域（通常是 `username.github.io`）
+- 可选：到仓库 Settings → Pages 中设置 Custom domain，并启用 HTTPS
+
+部署时工作流会把 `CUSTOM_DOMAIN` 写入 CNAME 文件并发布到 Pages，无需手动维护 CNAME。
+
 ## ⚙️ Issue 正文配置（可选）
 
 在 `Asset Database` Issue 的正文中，可以设置页面标题和描述：
