@@ -30,10 +30,35 @@ const { data: assetsData } = await useFetch<AssetsResponse>('/api/assets')
 const pageTitle = computed(() => assetsData.value?.title || 'Assets - My Assets Page')
 const pageAuthor = computed(() => assetsData.value?.author || 'My')
 
+const seoKeywords = computed(() => {
+  const names = (assetsData.value?.assets || []).map((a: any) => a.name).slice(0, 10)
+  const baseKeywords = ['资产', '资产管理', '个人资产', '财务', '数码']
+  return [...baseKeywords, ...names].join(', ')
+})
+
+const ogImage = computed(() => {
+  const firstCover = (assetsData.value?.assets || []).find((a: any) => a.cover)?.cover
+  return firstCover || '/android-chrome-512x512.png'
+})
+
 useHead({
   title: pageTitle,
+  link: [
+    { rel: 'canonical', href: '/' }
+  ],
   meta: [
-    { name: 'description', content: pageAuthor + ' Assets Page' }
+    { name: 'description', content: pageAuthor.value + ' Assets Page' },
+    { name: 'keywords', content: seoKeywords.value },
+    { name: 'robots', content: 'index,follow' },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:title', content: pageTitle.value },
+    { property: 'og:description', content: pageAuthor.value + ' Assets Page' },
+    { property: 'og:url', content: '/' },
+    { property: 'og:image', content: ogImage.value },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: pageTitle.value },
+    { name: 'twitter:description', content: pageAuthor.value + ' Assets Page' },
+    { name: 'twitter:image', content: ogImage.value }
   ]
 })
 
