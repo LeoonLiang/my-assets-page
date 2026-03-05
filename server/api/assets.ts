@@ -35,11 +35,13 @@ export default defineEventHandler(async (event) => {
         // 2. 解析 Issue 正文，提取 title 和 author
         let issueTitle = ''
         let issueAuthor = ''
+        let showGithubLink = false
         if (mainIssue.body) {
             try {
                 const issueParsed = matter(mainIssue.body)
                 issueTitle = issueParsed.data.title || ''
                 issueAuthor = issueParsed.data.author || ''
+                showGithubLink = issueParsed.data.show_github_link || false
             } catch (e) {
                 console.warn('Failed to parse issue body frontmatter', e)
             }
@@ -63,7 +65,7 @@ export default defineEventHandler(async (event) => {
             }
         }).filter((a: any) => a && a.name)
 
-        return { title: issueTitle, author: issueAuthor, assets };
+        return { title: issueTitle, author: issueAuthor, showGithubLink, assets };
 
     } catch (err: any) {
         if (err.response && err.response.status === 404) {
